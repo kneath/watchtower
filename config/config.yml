@@ -1,0 +1,14 @@
+# This should be a complete connection string to your database.
+#
+# Examples:
+# * `mysql://user:password@localhost/watchtower`
+# * `postgres://user:password@localhost/watchtower`
+# * `sqlite3:///home/integrity/db/watchtower.sqlite`
+#
+# Note:
+# * The appropriate data_objects adapter must be installed (`do_mysql`, etc)
+# * You must create the `watchtower` database on localhost, of course.
+:database_uri: mysql://root@localhost/watchtower_dev
+
+# Path to the watchtower log file
+:log: /var/log/watchtower.log
