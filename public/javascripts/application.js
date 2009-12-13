@@ -38,6 +38,14 @@
 
       this.currentBeam = this.beams[service]
       this.currentBeam.navElement.addClass('selected')
+
+      $('ul.events li').each(function(){
+        var el = $(this)
+        if (el.hasClass(service) || service == 'all')
+          el.show()
+        else
+          el.hide()
+      });
     },
 
     poll: function(){
