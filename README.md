@@ -2,7 +2,7 @@
 
 An example application built in Sinatra, Mustache, MongoDB.  I created this to better learn this particular tech stack.  It monitors twitter and hacker news (for now) for mentions of GitHub and displays them for you.  Much of the setup and code structure came from [defunkt](http://github.com/defunkt) (on a closed source app).
 
-![Example Screenshot](http://share.kyleneath.com/captures/GitHub_Watchtower-20091213-144412.jpg)
+![Example Screenshot](http://share.kyleneath.com/captures/GitHub_Watchtower-20091213-144444.jpg)
 
 This application doesn't have a lot of immediate usefulness that services like BackType already offer, except that you can host this yourself.
 
