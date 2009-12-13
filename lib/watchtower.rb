@@ -5,9 +5,18 @@ require 'logger'
 
 require 'mongo'
 require 'mustache/sinatra'
+require 'nokogiri'
+require 'open-uri'
+require 'digest/sha1'
 
+require 'watchtower/beam'
+require 'watchtower/beam/hacker_news'
+require 'watchtower/beam/twitter'
 require 'watchtower/helpers'
 require 'watchtower/app'
+
+MONGO = Mongo::Connection.new.db("watchtower-#{Watchtower::App.environment}")
+BEAMS = MONGO.collection('beams')
 
 module Watchtower
   def self.new(config=nil)

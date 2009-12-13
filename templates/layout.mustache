@@ -1,1 +1,32 @@
-weeee....
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Watchtower</title>
+	<link rel="stylesheet" href="/stylesheets/base.css" type="text/css" />
+	<script src="/javascripts/lib/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/javascripts/application.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+  <div id="sidebar">
+    <h2 id="logo">Watchtower</h2>
+    <ul id="nav">
+      <li data-title="All Events" data-service="all">
+        <strong>All Events</strong>
+        <em>5,629 in the past 24 hours</em>
+      </li>
+      <li data-title="Tweets" data-service="tweets">
+        <strong>Tweets</strong>
+        <em>5,629 in the past 24 hours</em>
+      </li>
+      <li data-title="Blog Comments" data-service="blog">
+        <strong>Blog Comments</strong>
+        <em>5,629 in the past 24 hours</em>
+      </li>
+    </ul>
+    <p class="status" style="display:none">Requesting...</p>
+  </div>
+  <div id="main">
+    {{{yield}}}
+  </div>
+</body>
+</html>

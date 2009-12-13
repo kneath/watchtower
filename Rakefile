@@ -17,26 +17,28 @@ namespace :test do
   end
 end
 
+namespace :mongodb do
+  desc "Start MongoDB for development"
+  task :start do
+    mkdir_p "db"
+    system "mongod --dbpath db/"
+  end
+end
+
 namespace :app do
-  task :setup do
-    require "lib/burndown"
-    Burndown.new(File.dirname(__FILE__) + "/config/config.yml")
+  task :environment do
+    require "lib/watchtower"
+    Watchtower.new(File.dirname(__FILE__) + "/config/config.yml")
   end
-  
-  task :update_milestones => :setup do
-    Burndown::Milestone.sync_with_lighthouse
+
+  task :poll => :environment do
+    Watchtower::Beam.poll_all
+  end
+
+  desc "Start Haystack for development"
+  task :start do
+    system "shotgun config.ru"
   end
 end
 
-task :environment do
-  require "lib/burndown"
-  Burndown.new(File.dirname(__FILE__) + "/config/config.yml")
-end
-
-task :cron => :environment do
-  if Time.now.hour == 01
-    puts "Updating milestones..."
-    Burndown::Milestone.sync_with_lighthouse
-    puts "done."
-  end
-end
+multitask :start => [ 'mongodb:start', 'app:start' ]

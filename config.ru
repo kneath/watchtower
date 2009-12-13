@@ -1,4 +1,7 @@
 #!/usr/bin/env ruby
+
+use Rack::ShowExceptions
+
 require 'lib/watchtower'
 
 # Load configuration and initialize Watchtower

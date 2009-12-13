@@ -5,9 +5,9 @@ module Watchtower
     enable :sessions
 
     include Watchtower
-    include Watchtower::Helpers
 
     register Mustache::Sinatra
+    helpers Helpers
 
     dir = File.dirname(File.dirname(__FILE__) + "/../../..")
 
@@ -22,6 +22,11 @@ module Watchtower
 
     get '/' do
       show :index
+    end
+
+    get '/poll' do
+      @results = Beam.poll_all
+      show :poll, :layout => false
     end
 
   end

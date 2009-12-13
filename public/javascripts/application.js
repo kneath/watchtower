@@ -26,6 +26,9 @@
       this.beams = getBeams()
       setupClickHandlers()
       this.initBeam('all')
+
+      setInterval(Watchtower.App.poll, 60*1000)
+      Watchtower.App.poll()
     },
 
     initBeam: function(service){
@@ -35,6 +38,18 @@
 
       this.currentBeam = this.beams[service]
       this.currentBeam.navElement.addClass('selected')
+    },
+
+    poll: function(){
+      $('p.status').show()
+      $.ajax({
+        type: 'GET',
+        url: '/poll',
+        success: function(html){
+          $('ul.events').prepend(html)
+          $('p.status').hide()
+        }
+      })
     }
   }
 

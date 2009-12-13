@@ -1,0 +1,16 @@
+{{# beams }}
+  <li class="event {{ service_short }}">
+    <div class="inner">
+      <div class="meta">
+        <span class="icon"></span>
+        <h3><a href="{{ author_url }}">{{ author }}</a> <span class="sep">&mdash;</span> {{ created_at }}</h3>
+        <ul class="actions">
+          {{# actions }}
+          <li><a href="{{ url }}">{{ name }}</a></li>
+          {{/ actions }}
+        </ul>
+      </div>
+      <p>{{{ body }}}</p>
+    </div>
+  </li><!-- /.event -->
+{{/ beams }}

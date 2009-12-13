@@ -60,6 +60,7 @@ h1{
 ------------------------------------------------------------------------------*/
 
 html, body{
+  overflow:auto;
   height:100%;
 }
 
@@ -76,6 +77,12 @@ h2#logo{
   margin:15px 15px;
   font-size:20px;
   color:#bbb;
+}
+
+#sidebar p.status{
+  margin:15px;
+  color:#999;
+  font-size:11px;
 }
 
 ul#nav{
@@ -176,7 +183,7 @@ ul.events .icon{
   height:16px;
   background:0 0 no-repeat;
 }
-ul.events li.tweet .icon{ background-image:url(/images/icons/twitter.png); }
+ul.events li.twitter .icon{ background-image:url(/images/icons/twitter.png); }
 ul.events li.hackernews .icon{ background-image:url(/images/icons/hackernews.png); }
 
 ul.events .meta ul.actions{

@@ -1,10 +1,10 @@
 module Watchtower
   module Views
-    class Index < Mustache
+    class Poll < Mustache
       include Watchtower::Helpers
 
       def beams
-        format_beams(Beam.all)
+        format_beams(@results || [])
       end
     end
   end
