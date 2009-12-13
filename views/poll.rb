@@ -6,6 +6,7 @@ module Watchtower
       def beams
         format_beams(@results || [])
       end
+
     end
   end
 end

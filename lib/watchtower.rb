@@ -14,6 +14,7 @@ require 'watchtower/beam/hacker_news'
 require 'watchtower/beam/twitter'
 require 'watchtower/helpers'
 require 'watchtower/app'
+require 'views/layout'
 
 MONGO = Mongo::Connection.new.db("watchtower-#{Watchtower::App.environment}")
 BEAMS = MONGO.collection('beams')

@@ -21,7 +21,7 @@ module Watchtower
       BEAMS.insert(object.merge({ 'created_at' => Time.now}))
     end
 
-    # Returns all Needles. Can be passed an options hash
+    # Returns all Beams. Can be passed an options hash
     #   :sort  - An array of [ field, order ] pairs
     #   :limit - How many results to return
     def self.all(options = {})
@@ -31,6 +31,12 @@ module Watchtower
       }
 
       BEAMS.find({}, default_options.merge(options))
+    end
+
+    def self.count_today(options = {})
+      BEAMS.find(options.merge({
+        :created_at => {'$gt' => Time.now - 60*60*24}
+      })).count()
     end
   end
 end
