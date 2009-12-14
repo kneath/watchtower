@@ -3,8 +3,8 @@ module Watchtower
     def self.poll(beam)
       results = []
       beam.new.results.each do |result|
-        existing = BEAMS.find('unique' => result['unique']).first
-        if !existing
+        existing = BEAMS.find('unique' => result['unique'])
+        if existing.count == 0
           self.save(result)
           results << result
         end
